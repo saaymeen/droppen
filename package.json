@@ -1,10 +1,10 @@
 {
 	"name": "droppen",
-	"version": "0.0.1",
-	"main": "index.js",
+	"version": "0.0.2",
 	"repository": "https://github.com/saaymeen/droppen.git",
 	"author": "Simon Schwitzky <hi@saaymeen.com>",
 	"license": "MIT",
+	"main": "build/index.js",
 	"module": "build/index.es.js",
 	"jsnext:main": "build/index.es.js",
 	"scripts": {
