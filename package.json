@@ -8,7 +8,7 @@
 	"module": "build/index.es.js",
 	"jsnext:main": "build/index.es.js",
 	"scripts": {
-		"build": "rollup -c",
+		"build": "rollup -c && tsc",
 		"test": "jest",
 		"lint": "eslint '*/**/*.{js,ts,tsx}' --color --fix",
 		"prepare": "yarn test && yarn lint && yarn build",
