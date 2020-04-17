@@ -5,6 +5,7 @@ import React, {
 	ReactNode,
 	useRef,
 	useEffect,
+	MutableRefObject,
 } from 'react';
 
 import { DropdownContextProvider } from './context';
@@ -28,7 +29,9 @@ const Dropdown: FC<Props> = ({
 	const [expand, setExpand] = useState(false);
 	const [toggleNode, setToggleNode] = useState<ReactNode>(null);
 	const [index, setIndex] = useState<number>(-1);
-	const ref = useRef(document.createElement('div'));
+	// TODO: Find a workaround for strict as casting
+	// document.createElement will not work because of SSR
+	const ref = useRef() as MutableRefObject<HTMLDivElement>;
 
 	const updateSelection = (
 		data: unknown,
@@ -54,6 +57,7 @@ const Dropdown: FC<Props> = ({
 		setExpand(false);
 	};
 
+	// Because of useEffect, we ensure that the code is always run after SSR (on client side), hence document is available
 	useEffect((): (() => void) => {
 		if (expand) {
 			document.addEventListener('mousedown', handleClickOutside);
