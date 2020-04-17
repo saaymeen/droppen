@@ -9,13 +9,15 @@ export default {
 	input: 'src/index.ts',
 	output: [
 		{
-			file: pkg.main,
+			//file: pkg.main,
+			dir: 'build',
 			format: 'cjs',
 			exports: 'named',
 			sourcemap: true,
 		},
 		{
-			file: pkg.module,
+			//file: pkg.module,
+			dir: 'build',
 			format: 'es',
 			exports: 'named',
 			sourcemap: true,
