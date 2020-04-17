@@ -1,6 +1,6 @@
 {
 	"name": "droppen",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"repository": "https://github.com/saaymeen/droppen.git",
 	"author": "Simon Schwitzky <hi@saaymeen.com>",
 	"license": "MIT",
@@ -10,7 +10,7 @@
 	"scripts": {
 		"build": "rollup -c && tsc",
 		"test": "jest",
-		"lint": "eslint '*/**/*.{js,ts,tsx}' --color --fix",
+		"lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --color --fix",
 		"prepare": "yarn test && yarn lint && yarn build",
 		"postpublish": "PACKAGE_VERSION=$(cat package.json | grep \\\"version\\\" | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag v$PACKAGE_VERSION && git push --tags"
 	},
